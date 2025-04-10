@@ -1,0 +1,7 @@
+
+public function index(Request $request)
+{
+    $query = $request->query('query'); // Retrieve GET parameter
+    $results = Item::where('name', 'like', "%{$query}%")->get();
+    return view('search', compact('results'));
+}
